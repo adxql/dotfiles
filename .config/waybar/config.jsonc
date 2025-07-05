@@ -1,0 +1,129 @@
+{
+    "layer": "bottom",
+    "output": ["DP-2", "eDP-1"],
+    "position": "top",
+    "height": 42,
+
+    "modules-left": ["group/power", "clock#time", "clock#date", "hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["temperature", "custom/updates", "disk", "network", "backlight", "pulseaudio", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+        },
+        
+        "persistent-workspaces": {
+            "*": [ 1, 2, 3, 4, 5 ]
+        },
+    },
+
+    "clock#time": {
+       "format": "<span font_size='12pt'>󰥔</span>  {:%I:%M %p}", 
+       "tooltip-format": "Alternatively, {:%R}",
+    },
+
+    "clock#date": {
+        "format": "<span font_size='12pt'>󰃭</span>  {:%d %b}",
+        "tooltip-format": "Today is {:%A, %d %B %Y}",
+    },
+
+    "pulseaudio": {
+        "format": "<span font_size='13pt'>{icon}</span>  {volume}%",
+        "format-muted": "<span font_size='13pt'>󰖁</span>  ---%",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1b.0.analog-stereo": "󰕾",
+            "alsa_output.usb-XiiSound_Technology_Corporation_Fantech_Tamago_WHG01-00.analog-stereo": "",
+            "hdmi": "󰍹",
+        },
+        "on-click": "pavucontrol",
+        "tooltip-format": "Using {desc}"
+    },
+
+    "network": {
+        "format-wifi": "<span font_size='13pt'>{icon}</span>  {essid}",
+        "format-ethernet": "<span font_size='13pt'>󰈀</span>  ifname",
+        "format-disconnected": "<span font_size='13pt'>󰤭</span>  Disconnected",
+        "format-icons": [
+            "󰤨",
+            "󰤥",
+            "󰤢",
+            "󰤟",
+        ],
+        "tooltip-format-wifi": "Connected to {essid} with interface of {ifname}.\nInternet speed: 󰁝 {bandwidthUpBytes}, 󰁅 {bandwidthDownBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-ethernet": "Connected to {ipaddr} with interface of {ifname}.\nInternet speed: 󰁝 {bandwidthUpBytes}, 󰁅 {bandwidthDownBytes}"
+    },
+
+    "backlight": {
+        "format": "<span font_size='13pt'>󰌵</span> {percent}%",
+        "tooltip-format": "Screen brightness set to {percent}%"
+    },
+
+    "disk": {
+        "path": "/",
+        "format": "<span font_size='12pt'></span>  {percentage_used}%",
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°C <span font_size='13pt'></span> ",
+        "format-critical": "{temperatureC}°C <span font_size='13pt'></span>! ",
+        "tooltip-format": "{temperatureC}°C : {temperatureF}°F"
+    },
+
+    "custom/updates": {
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "format": "<span font_size='12pt'></span>  {}",
+        "tooltip-format": "{} packages needs to be update"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 2,
+        "reverse-direction": true,
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 70,
+        "tooltip": "false"
+    },
+
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "powering",
+            "transition-left-to-right": true,
+        },
+
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/lock",
+            "custom/sleep",
+            "custom/reboot",
+        ]
+    },
+
+    "custom/sleep": {
+        "format": "<span font_size='16pt'>󰿔</span>",
+        "tooltip": false,
+        "on-click": "systemctl suspend"
+    },
+    "custom/reboot": {
+        "format": "<span font_size='14pt'>󰜉</span>",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/power": {
+        "format": "<span font_size='12pt'></span>",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
+    } 
+}, 

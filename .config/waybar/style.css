@@ -1,0 +1,156 @@
+@import "./themes/rose-pine-dawn.css";
+
+window#waybar {
+    font-family: Iosevka;
+    font-size: 11pt;
+    background-color: rgba(242, 233, 222, .85);
+    color: @text;  
+}
+
+#workspaces {
+    margin: 6px;
+    border: 2px solid @surface;
+    background-color: @surface;
+    border-radius: 8px;
+    font-family: Noto Sans CJK JP;
+    font-size: 10pt;
+}
+
+#workspaces button {
+    padding: 0px 6px;
+    color: @highlightHigh;
+}
+
+#workspaces button.active {
+    color: @text
+}
+
+#workspaces button:hover {
+    background-color: @overlay;
+    border-radius: 8px;
+    border-color: @overlay;
+    color: @text;
+}
+
+#clock {
+    color: @pine;
+    border: 2px solid @base;
+}
+
+#clock.time {
+    border-radius: 8px 0 0 8px;
+    margin: 6px 0 6px 0px;
+}
+
+#clock.date {
+    border-radius: 0 8px 8px 0;
+    margin: 6px 0px 6px 0px;
+}
+
+#pulseaudio {
+    margin: 6px 6px 6px 2px; /* top right bottom left */
+    border: 2px solid;
+    border-radius: 0 8px 8px 0;
+    color: @love;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#network {
+    margin: 6px 0 6px 6px;
+    border-radius: 8px 0 0 8px;
+}
+
+#network.wifi, #network.ethernet {
+    color: @foam;
+}
+
+#network.disconnected {
+    color: @muted;
+}
+
+#backlight {
+    color: @gold;
+    margin: 6px 0 6px 2px;
+}
+
+#disk {
+    margin: 6px 0 6px 2px;
+    border-radius: 0 8px 8px 0;
+    color: @iris;
+}
+
+#temperature {
+    margin: 6px 0;
+    border-radius: 8px 0 0 8px;
+    color: @gold;
+}
+
+#custom-updates {
+    color: @rose;
+    margin: 6px 0 6px 2px;
+}
+
+#tray {
+    margin: 6px;
+    border-radius: 8px;
+    padding: 0 8px;
+    background-color: @base;
+}
+
+#window {
+    font-family: Victor Mono Nerd Font;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+#power {
+    background-color: @surface;
+    border-color: @surface;
+    border-radius: 8px;
+    margin: 6px;
+}
+
+#custom-power, #custom-sleep, #custom-reboot {
+    padding: 0 14px 0 8px;
+} 
+
+#custom-power {
+    color: @rose
+}
+
+#custom-sleep {
+    color: @iris
+}
+
+#custom-reboot {
+    color: @foam
+}
+
+#clock, 
+#pulseaudio, 
+#network, 
+#backlight, 
+#disk, 
+#temperature, 
+#custom-updates
+{
+    background-color: @surface;
+    border-color: @surface;
+    padding: 0 8px;
+}
+
+tooltip {
+    background-color: @surface;
+    border: 2px solid @overlay;
+    border-radius: 8px;
+}
+
+tooltip label {
+    font-family: Iosevka;
+    color: @text;
+    text-shadow: none;
+}
+
